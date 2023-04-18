@@ -11,7 +11,7 @@ const arr = [["arqum",'sultan',1],["alu",'sun',2],["ramee",'hen',3]]
 
 //x is element in array i is index
 const arr2= arr.map((x,i)=>{
-  console.log(i,arr)
+  console.log(i)
   return{
   
   firstName:x[0],
