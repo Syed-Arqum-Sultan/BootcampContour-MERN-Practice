@@ -74,3 +74,11 @@ let result = myCalculator(5, 5);
 myDisplayer(result);
 
 ///same action using callbacks!
+////promises
+function job() {
+  const promise =  new Promise((resolve) => {
+      promise.resolve(setTimeOut(20000));
+     
+  });
+  return 'hello world';
+}
