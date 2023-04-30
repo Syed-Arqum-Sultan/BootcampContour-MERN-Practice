@@ -75,15 +75,74 @@ myDisplayer(result);
 
 ///same action using callbacks!
 ////promises
-function job() {
+// function job() {
     
-  return new Promise((resolve)=>{
+//   return new Promise((resolve)=>{
 
-      setTimeOut(
-        ()=>
-      resolve('hello world')
-      ,2000);
+//       setTimeOut(
+//         ()=>
+//       resolve('hello world')
+//       ,2000);
   
-    }) ;
+//     }) ;
+// }
+// console.log(job())
+
+
+///promise practice 2 
+function job(data) {
+  let promise = new Promise((resolve, reject)=>{
+      
+      if(isNaN(data)){
+        return promise.reject("error");
+      }
+      if(data%2==1){
+        setTimeOut(()=>resolve('odd'),1000)
+      }
+      if(data%2==0){
+        setTimeOut(()=> reject("even"), 2000)
+      }
+      
+  });
+  return promise
 }
-console.log(job())
+console.log(job(35));
+
+
+////promise chaining 
+
+
+
+var promise = job1();
+
+promise
+
+.then(function(data1) {
+    console.log('data1', data1);
+    return job2();
+})
+
+.then(function(data2) {
+    console.log('data2', data2);
+    return 'Hello world';/// returning this will create an auto resolve promise, here an auto resolve promise is created 
+}) 
+
+.then(function(data3) {
+    console.log('data3', data3);
+});//here as we are not returning anything the return will have a auto resolve promise which will have a value of undefined as we are not returnuig abything! 
+
+function job1() {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve('result of job 1');
+        }, 1000);
+    });
+}
+
+function job2() {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve('result of job 2');
+        }, 1000);
+    });
+}
