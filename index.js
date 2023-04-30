@@ -129,8 +129,11 @@ promise
 
 .then(function(data3) {
     console.log('data3', data3);
-});//here as we are not returning anything the return will have a auto resolve promise which will have a value of undefined as we are not returnuig abything! 
+})//here as we are not returning anything the return will have a auto resolve promise which will have a value of undefined as we are not returnuig abything! 
 
+.then(function(data4){
+  console.log("data4", data4);
+})
 function job1() {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
