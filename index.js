@@ -76,9 +76,14 @@ myDisplayer(result);
 ///same action using callbacks!
 ////promises
 function job() {
-  const promise =  new Promise((resolve) => {
-      promise.resolve(setTimeOut(20000));
-     
-  });
-  return 'hello world';
+    
+  return new Promise((resolve)=>{
+
+      setTimeOut(
+        ()=>
+      resolve('hello world')
+      ,2000);
+  
+    }) ;
 }
+console.log(job())
